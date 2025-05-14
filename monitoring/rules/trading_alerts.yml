@@ -1,0 +1,26 @@
+groups:
+  - name: trading_alerts
+    rules:
+      - alert: HighTradeFailureRate
+        expr: rate(trading_failed_orders_total[5m]) / rate(trading_orders_total[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          description: "High trade failure rate detected (>10%)"
+
+      - alert: ApiLatencyHigh
+        expr: http_request_duration_seconds{quantile="0.9"} > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          description: "API latency is high"
+
+      - alert: LowBalanceWarning
+        expr: account_balance < 1000
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          description: "Account balance is low"

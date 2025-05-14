@@ -1,0 +1,37 @@
+advanced-trading-system/
+├── .github/
+│   └── workflows/
+│       └── main.yml
+├── src/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── exchange.py
+│   │   ├── portfolio.py
+│   │   ├── risk.py
+│   │   └── trading.py
+│   ├── ml/
+│   │   ├── __init__.py
+│   │   ├── model.py
+│   │   ├── features.py
+│   │   └── training.py
+│   ├── strategies/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   └── ml_strategy.py
+│   ├── ui/
+│   │   ├── __init__.py
+│   │   ├── main_window.py
+│   │   └── components/
+│   │       ├── __init__.py
+│   │       ├── chart.py
+│   │       └── order_panel.py
+│   └── main.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_trading.py
+│   └── test_ml.py
+├── config/
+│   └── config.yml
+├── requirements.txt
+├── setup.py
+└── README.md

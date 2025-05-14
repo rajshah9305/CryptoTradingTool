@@ -1,0 +1,30 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Trading System Dashboard",
+    "panels": [
+      {
+        "title": "Trade Performance",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "sum(trading_profit_loss) by (symbol)",
+            "legendFormat": "{{symbol}}"
+          }
+        ]
+      },
+      {
+        "title": "Order Success Rate",
+        "type": "gauge",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "sum(rate(trading_successful_orders_total[5m])) / sum(rate(trading_orders_total[5m])) * 100"
+          }
+        ]
+      }
+    ],
+    "refresh": "10s"
+  }
+}
